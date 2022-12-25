@@ -31,7 +31,7 @@ module.exports = async (client, interaction) => {
         guild.channels.create({
             name: interaction.user.id,
             parent: '1055783805715222598',
-            permissionOverrides: [{
+            permissionOverwrites: [{
                 id: guild.roles.everyone.id,
                 deny: ['ViewChannel', 'SendMessages']
             }],
