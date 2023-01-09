@@ -25,7 +25,7 @@ module.exports = async (client, interaction) => {
         let guild = client.guilds.cache.get('1010419325645099028');
         await interaction.deferUpdate();
         if (guild.channels.cache.find(data => data.name == interaction.user.id)) {
-            interaction.editReply({ content: 'Vui lòng đợi phản hồi!', components: [] });
+            interaction.editReply({ content: 'Vui lòng nhắn trực tiếp tại đây!', components: [] });
             return;
         }
         guild.channels.create({
