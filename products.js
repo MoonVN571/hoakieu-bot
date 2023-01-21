@@ -23,7 +23,7 @@ module.exports = [{
     name: 'LITO BST',
     url: 'https://cdn.discordapp.com/emojis/918832199367794698.webp?size=96&quality=lossless',
     description:
-        `**1 Tháng:** 80k\n**1 Năm:** 600k`
+        `**1 Tháng:** 80k\n**1 Năm:** 470k`
         + `\n\n*Hàng đặt trước, dạng **link**, có từ 1 đến 2 ngày. Lấy role **avai** tại <#1055785251303075870> để nhận ping có sẵn.*`
         + `\n\n*Đảm bảo chất lượng cao, tỉ lệ lỗi cực thấp.`
         + ` Bảo hành đầy đủ trong thời gian sử dụng*`,
