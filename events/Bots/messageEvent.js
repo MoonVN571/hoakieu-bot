@@ -33,7 +33,8 @@ async function dms(message) {
     let guild = client.guilds.cache.get('1010419325645099028');
     let channel = guild.channels.cache.find(channel => channel.name == message.author.id);
     if (channel) channel.send(`**${message.author.username}** ${message.content}\n\n${message.attachments.map(d => d.url).join('\n')}`);
-    if (message.content.toLowerCase() !== 'gia') return;
+    if (message.content.toLowerCase() !== 'gia' && !client.dev
+        || (message.content.toLowerCase() !== 'devgia' && client.dev)) return;
     const data = require('../../products');
     client.channels.cache.get('1055810611960873060').send(`${message.author.tag} (${message.author.id}) check`);
     data.forEach(value => {
