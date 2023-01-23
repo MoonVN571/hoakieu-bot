@@ -16,6 +16,7 @@ const client = new Client({
     ],
 });
 const mysql = require('mysql');
+const mongoose = require('mongoose');
 require('dotenv').config();
 module.exports = client;
 module.exports.discord = client;
@@ -24,15 +25,22 @@ client.slashCommands = new Collection();
 client.config = require('./config.json');
 client.botEmojis = require('./assets/emojis.json');
 client.dev = client.config.developer;
+/*
 const sql = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     port: process.env.MYSQL_PORT,
     user: process.env.MYSQL_USERNAME,
     password: process.env.MYSQL_PASSWORD,
     database: process.env.MYSQL_USERNAME
-});
+}); */
+let sql;
 client.sql = sql;
-setInterval(() => sql.ping(), 60000);
+// MongoDB
+mongoose.set('strictQuery', true);
+mongoose.connect(process.env.MONGO_STRING, {}).then(() => {
+    console.log("Connected to MongoDB!");
+});
+// setInterval(() => sql.ping(), 60000);
 require('./handler/index');
 process.on('uncaughtException', (error) => {
     console.log(error);
