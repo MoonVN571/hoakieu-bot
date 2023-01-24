@@ -11,3 +11,4 @@ readdirSync('./commands/').forEach(cmdType => {
         });
     });
 });
+require('./callback');
