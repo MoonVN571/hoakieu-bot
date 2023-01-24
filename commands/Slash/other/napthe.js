@@ -58,8 +58,7 @@ module.exports = {
                 channelId: interaction.channel.id,
                 msgId: msg.id
             }));
-        console.log(pin, seri, cardType, cardValue, enc);
-        return;
+        // console.log(pin, seri, cardType, cardValue, enc);
         require('axios').default({
             url: 'https://doithesieure.vn/api/card',
             params: {
