@@ -68,10 +68,11 @@ module.exports = {
                 CardType: cardType,
                 CardValue: cardValue,
                 requestid: enc
-            }
+            },
+            method: 'post'
         }).then(res => {
             let msg = res.data.Message;
             interaction.followUp(msg);
-        }).catch(er => interaction.followUp(err.message));
+        }).catch(err => interaction.followUp(err.message));
     }
 }
