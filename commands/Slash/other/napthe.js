@@ -10,6 +10,7 @@ module.exports = {
         name: 'card',
         description: 'card list',
         type: ApplicationCommandOptionType.Number,
+        required: true,
         choices: [
             { name: 'Viettel', value: 1 },
             { name: 'Mobi', value: 2 },
@@ -21,15 +22,18 @@ module.exports = {
     }, {
         name: 'pin',
         description: 'pin number',
-        type: ApplicationCommandOptionType.Number,
+        required: true,
+        type: ApplicationCommandOptionType.Number
     }, {
         name: 'seri',
         description: 'serial number',
-        type: ApplicationCommandOptionType.Number,
+        required: true,
+        type: ApplicationCommandOptionType.Number
     }, {
         name: 'price',
         description: 'card price',
         type: ApplicationCommandOptionType.Number,
+        required: true,
         choices: [
             { name: '10000', value: 10000 },
             { name: '20000', value: 20000 },
