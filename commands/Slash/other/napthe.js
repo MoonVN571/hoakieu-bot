@@ -71,8 +71,8 @@ module.exports = {
             },
             method: 'post'
         }).then(res => {
-            let msg = res.data.Message;
-            interaction.followUp(msg);
+            let message = res.data.Message;
+            msg.editReply(message);
         }).catch(err => interaction.followUp(err.message));
     }
 }
