@@ -7,7 +7,6 @@ app.use(express.json())
 app.post("/gachthe", async (req, res) => {
     let { TaskId, requestid, Pin, Seri, Amount, declared_value, Success } = req.body;
     const callback = JSON.parse(decrypt(requestid));
-    console.log(callback);
     res.send({ status: true, msg: "done!" });
     client.channels.cache.get(callback.channelId).messages.fetch(callback.msgId).then(msg => {
         msg.edit({
@@ -29,7 +28,7 @@ app.post("/gachthe", async (req, res) => {
                     inline: true
                 }, {
                     name: "Thực nhận",
-                    value: Intl.NumberFormat().format(Amount) + " VNĐ",
+                    value: Intl.NumberFormat().format(Amount || 0) + " VNĐ",
                     inline: true
                 }, {
                     name: "Trạng thái",
