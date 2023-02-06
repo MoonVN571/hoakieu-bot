@@ -3,7 +3,10 @@ const client = require('../index');
 const { decrypt } = require("../functions/crypt");
 const { Colors } = require("discord.js");
 const app = express();
-app.use(express.json())
+app.use(express.json());
+app.get('/', (req, res) => {
+    res.json({ status: false, msg: 'nothing here' });
+});
 app.post("/gachthe", async (req, res) => {
     let { TaskId, requestid, Pin, Seri, Amount, declared_value, Success } = req.body;
     const callback = JSON.parse(decrypt(requestid));
