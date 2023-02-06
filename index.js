@@ -17,7 +17,6 @@ const client = new Client({
 });
 const mysql = require('mysql');
 const mongoose = require('mongoose');
-require('dotenv').config();
 module.exports = client;
 module.exports.discord = client;
 client.commands = new Collection();
@@ -25,6 +24,7 @@ client.slashCommands = new Collection();
 client.config = require('./config.json');
 client.botEmojis = require('./assets/emojis.json');
 client.dev = client.config.developer;
+if (client.dev) require('dotenv').config();
 /*
 const sql = mysql.createConnection({
     host: process.env.MYSQL_HOST,
