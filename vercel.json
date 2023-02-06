@@ -9,14 +9,11 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/"
-        },
-        {
-            "src": "/handler/callback.js",
+            "dest": "/",
             "methods": [
-                "POST"
-            ],
-            "dest": "/gachthe"
+                "POST",
+                "GET"
+            ]
         }
     ]
 }
