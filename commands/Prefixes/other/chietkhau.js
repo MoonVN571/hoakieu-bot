@@ -5,7 +5,10 @@ module.exports = {
     name: "chietkhau",
     aliases: ['ck'],
     async execute(client, message, args) {
-        if (!args[0]) return message.reply({ content: "Cung cấp mệnh giá cần xem, có thể nhầm nhiều mệnh giá.", allowedMentions: { repliedUser: false } });
+        if (!args[0]) return message.send({
+            msg: "Cung cấp mệnh giá cần xem, có thể nhầm nhiều mệnh giá.",
+            error: true, reply: true
+        });
         let gia_xem = args;
         let invalid = gia_xem.find(gia => isNaN(parseInt(gia))
             || !(gia == '10000'
@@ -16,10 +19,20 @@ module.exports = {
                 || gia == '200000'
                 || gia == '300000'
                 || gia == '500000'));
-        if (invalid) return message.reply({ content: "Mệnh giá cung cấp không hợp lệ.", allowedMentions: { repliedUser: false } });
+        if (invalid) return message.send({
+            msg: "Mệnh giá cung cấp không hợp lệ.",
+            error: true, reply: true
+        });
+        let msg = await message.reply({
+            embeds: [{
+                title: "BẢNG PHÍ",
+                description: 'Đang láy dữ liệu chiết khấu...',
+                color: Colors.Blue
+            }], allowedMentions: { repliedUser: false }
+        });
         axios.get('https://dtsr11.com/api/cardrate?apikey=' + process.env.DTSR_API).then(async response => {
             let fields = [];
-            await Promise.all(response.data.Data.map(async cardData => {
+            await Promise.all(response.data.Data.map(cardData => {
                 if (cardData.status) {
                     let priceList = [];
                     cardData.prices.forEach(card => {
@@ -33,9 +46,10 @@ module.exports = {
                     });
                 }
             }));
-            message.reply({
+            msg.edit({
                 embeds: [{
                     title: "BẢNG PHÍ",
+                    description: 'Chiết khấu ngày <t:' + parseInt(Date.now() / 1000) + ':d>',
                     fields: fields,
                     color: Colors.Blue
                 }], allowedMentions: { repliedUser: false }

@@ -19,15 +19,18 @@ module.exports = async (client, interaction) => {
             ephemeral: true,
         });
     }
+    // Số tháng khi order
     if (interaction.customId == 'monthly') {
         let item = interaction.values[0].split('.select')[0];
         let month = interaction.values[0].split('select.')[1];
         let guild = client.guilds.cache.get('1010419325645099028');
         await interaction.deferUpdate();
+        // nếu đã tạo đơn
         if (guild.channels.cache.find(data => data.name == interaction.user.id)) {
             interaction.editReply({ content: 'Vui lòng nhắn trực tiếp tại đây!', components: [] });
             return;
         }
+        // tạo đơn
         guild.channels.create({
             name: interaction.user.id,
             parent: '1055783805715222598',
@@ -40,7 +43,7 @@ module.exports = async (client, interaction) => {
             channel.send(`<@497768011118280716> ${item} ${month} tháng`);
         })
         interaction.editReply({
-            content: `${item} với **${month}** tháng, chúng mình sẽ trả lời bạn tại đây!`,
+            content: `${item} với **${month}** tháng, chúng mình sẽ trả lời bạn tại đây sớm nhất có thể!`,
             components: []
         });
     }

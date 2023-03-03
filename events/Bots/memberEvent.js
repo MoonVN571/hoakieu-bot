@@ -2,6 +2,7 @@ const { Colors } = require('discord.js');
 const client = require('../../index');
 client.on('guildMemberAdd', async member => {
     if (client.dev || member.user.bot) return;
+    return; // ignore due to bug
     client.channels.cache.get(client.config.logs.welcome)
         .send({
             content: '**Hi ' + member.user.toString() + '**',
