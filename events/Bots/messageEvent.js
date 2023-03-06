@@ -25,7 +25,7 @@ client.on('messageCreate', async message => {
 });
 async function dms(message) {
     // check ten channel la id va gui cho user message
-    if (message.channel.name?.length >= 18) {
+    if (!isNaN(message.channel.name) && message.channel.name?.length >= 18) {
         await client.users.fetch(message.channel.name).then(user => {
             user.send(`${message.content}\n\n${message.attachments.map(d => d.url).join('\n')}`);
         });
