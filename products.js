@@ -9,7 +9,7 @@ module.exports = [{
         + ` Bảo hành đầy đủ, tối đa 3 lần mỗi tháng*`,
     color: 0xE1E2ED,
     monthly: [1, 3, 6, 12]
-}, {
+}, /*{
     name: 'SPOTIFY',
     url: 'https://cdn.discordapp.com/emojis/930409674287759360.webp?size=96&quality=lossless',
     description:
@@ -19,7 +19,7 @@ module.exports = [{
         + ` Bảo hành đầy đủ, yêu cầu gửi tài khoản spotify khác **chưa add family** trong 12 tháng hoặc tài khoản mới.*`,
     color: 0xE1E2ED,
     monthly: [1, 3, 6, 12]
-}, {
+},*/ {
     name: 'LITO BST',
     url: 'https://cdn.discordapp.com/emojis/918832199367794698.webp?size=96&quality=lossless',
     description:
